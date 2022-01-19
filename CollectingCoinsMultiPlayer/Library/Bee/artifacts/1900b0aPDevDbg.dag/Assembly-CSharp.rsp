@@ -330,6 +330,7 @@
 "Assets/Scripts/CreateAndJoinRooms.cs"
 "Assets/Scripts/GameplayUI.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/SpawnPlayers.cs"
 -langversion:9.0
 
 /deterministic

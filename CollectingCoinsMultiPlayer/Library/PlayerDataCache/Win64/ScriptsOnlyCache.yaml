@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - CreateAndJoinRooms
     - GameplayUI
     - PlayerController
+    - SpawnPlayers
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -15,10 +16,15 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PhotonTransformViewClassicEditor
+    - Photon.Pun.PhotonViewInspector
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
     - Photon.Pun.PhotonTransformView
+    - Photon.Pun.PhotonTransformViewClassic
     - Photon.Pun.PhotonView
     - Photon.Pun.ServerSettings
     Unity.Rider.Editor.dll:
@@ -83,6 +89,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1864}
     - Class: 114
+      Script: {instanceID: 1898}
+    - Class: 114
       Script: {instanceID: 2530}
     - Class: 114
       Script: {instanceID: 2652}
@@ -91,11 +99,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2834}
     - Class: 114
+      Script: {instanceID: 3036}
+    - Class: 114
       Script: {instanceID: 3044}
     - Class: 114
       Script: {instanceID: 22330}
     - Class: 114
       Script: {instanceID: 23490}
+    - Class: 114
+      Script: {instanceID: 29504}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -172,6 +184,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1864}
     - Class: 114
+      Script: {instanceID: 1898}
+    - Class: 114
       Script: {instanceID: 2180}
     - Class: 114
       Script: {instanceID: 2288}
@@ -213,6 +227,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4998}
     - Class: 114
       Script: {instanceID: 20098}
+    - Class: 114
+      Script: {instanceID: 22330}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1643,6 +1659,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameplayUI
+  - hash:
+      serializedVersion: 2
+      Hash: 6796be2d0db7a1b87bf414bdb3807cbc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnPlayers
   platform: 19
   scenePathNames:
   - Assets/Scenes/LoadingScene.unity
