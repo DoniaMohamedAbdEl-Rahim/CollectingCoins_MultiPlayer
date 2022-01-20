@@ -14,6 +14,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     GameObject roomPanel;
     [SerializeField]
     TMP_Text roomName;
+
+    [SerializeField]
+    RoomItem roomItemPrefab;
+    List<RoomItem> roomItemList=new List<RoomItem>();
+    public Transform contentObject;
     void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -33,5 +38,29 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         roomName.text = "Room name : " + PhotonNetwork.CurrentRoom.Name;
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        UpdateRoomList(roomList);
+    }
+
+    void UpdateRoomList(List<RoomInfo> list)
+    {
+        foreach(RoomItem item in roomItemList)
+        {
+            Destroy(item.gameObject);
+        }
+        roomItemList.Clear();
+        foreach(RoomInfo room in list)
+        {
+            RoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
+            newRoom.SetRoomName(room.Name);
+            roomItemList.Add(newRoom);
+        }
+    }
+    public void JoinRoom(string _roomName)
+    {
+        PhotonNetwork.JoinRoom(_roomName);
     }
 }

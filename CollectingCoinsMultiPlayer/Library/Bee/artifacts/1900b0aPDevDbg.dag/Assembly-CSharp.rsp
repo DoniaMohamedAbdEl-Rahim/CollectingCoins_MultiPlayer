@@ -312,6 +312,14 @@
 -r:"Library/Bee/artifacts/1900b0aPDevDbg.dag/Unity.TextMeshPro.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aPDevDbg.dag/Unity.Timeline.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aPDevDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/AnotherMultiplayerGame/Scripts/ConnectToTheServer.cs"
+"Assets/AnotherMultiplayerGame/Scripts/LobbyManager.cs"
+"Assets/AnotherMultiplayerGame/Scripts/RoomItem.cs"
+"Assets/CollectingCoinsMultiplayer/Scripts/ConnectToServer.cs"
+"Assets/CollectingCoinsMultiplayer/Scripts/CreateAndJoinRooms.cs"
+"Assets/CollectingCoinsMultiplayer/Scripts/GameplayUI.cs"
+"Assets/CollectingCoinsMultiplayer/Scripts/PlayerController.cs"
+"Assets/CollectingCoinsMultiplayer/Scripts/SpawnPlayers.cs"
 "Assets/Photon/PhotonChat/Demos/Common/EventSystemSpawner.cs"
 "Assets/Photon/PhotonChat/Demos/Common/OnStartDelete.cs"
 "Assets/Photon/PhotonChat/Demos/Common/TextButtonTransition.cs"
@@ -326,11 +334,6 @@
 "Assets/Photon/PhotonLibs/WebSocket/SocketWebTcp.cs"
 "Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs"
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
-"Assets/Scripts/ConnectToServer.cs"
-"Assets/Scripts/CreateAndJoinRooms.cs"
-"Assets/Scripts/GameplayUI.cs"
-"Assets/Scripts/PlayerController.cs"
-"Assets/Scripts/SpawnPlayers.cs"
 -langversion:9.0
 
 /deterministic
