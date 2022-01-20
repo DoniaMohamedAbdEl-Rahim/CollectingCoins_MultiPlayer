@@ -17,8 +17,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     [SerializeField]
     RoomItem roomItemPrefab;
-    List<RoomItem> roomItemList=new List<RoomItem>();
+    List<RoomItem> roomItemList = new List<RoomItem>();
     public Transform contentObject;
+
+    float timeBetweenUpdate = 1.5f;
+    float nextUpdateTime = 1.5f;
     void Start()
     {
         PhotonNetwork.JoinLobby();
@@ -42,17 +45,21 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        UpdateRoomList(roomList);
+        if (Time.time > nextUpdateTime)
+        {
+            UpdateRoomList(roomList);
+            nextUpdateTime += timeBetweenUpdate;
+        }
     }
 
     void UpdateRoomList(List<RoomInfo> list)
     {
-        foreach(RoomItem item in roomItemList)
+        foreach (RoomItem item in roomItemList)
         {
             Destroy(item.gameObject);
         }
         roomItemList.Clear();
-        foreach(RoomInfo room in list)
+        foreach (RoomInfo room in list)
         {
             RoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
             newRoom.SetRoomName(room.Name);
@@ -62,5 +69,21 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void JoinRoom(string _roomName)
     {
         PhotonNetwork.JoinRoom(_roomName);
+    }
+
+    public void OnClickLeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        roomPanel.SetActive(false);
+        lobbyPanel.SetActive(true);
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
     }
 }

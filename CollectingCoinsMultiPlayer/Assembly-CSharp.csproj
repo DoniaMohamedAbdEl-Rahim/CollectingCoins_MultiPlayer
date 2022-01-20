@@ -75,6 +75,7 @@
     <Compile Include="Assets\AnotherMultiplayerGame\Scripts\ConnectToTheServer.cs" />
     <Compile Include="Assets\AnotherMultiplayerGame\Scripts\LobbyManager.cs" />
     <Compile Include="Assets\AnotherMultiplayerGame\Scripts\RoomItem.cs" />
+    <Compile Include="Assets\AnotherMultiplayerGame\Scripts\PlayerItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
