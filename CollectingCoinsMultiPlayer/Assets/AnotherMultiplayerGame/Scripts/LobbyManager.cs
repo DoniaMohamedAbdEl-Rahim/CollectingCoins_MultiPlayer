@@ -27,9 +27,24 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     PlayerItem playerItemPrefab;
     [SerializeField]
     Transform playerItemParent;
+
+    [SerializeField]
+    GameObject playBtn;
     void Start()
     {
         PhotonNetwork.JoinLobby();
+    }
+
+    void Update()
+    {
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount>=2)
+        {
+            playBtn.SetActive(true);
+        }
+        else
+        {
+            playBtn.SetActive(false);
+        }
     }
 
     public void OnClickCreate()
@@ -37,8 +52,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (roomInputFeild.text.Length >= 1)
         {
             //To limit room number of players
-            // PhotonNetwork.CreateRoom(roomInputFeild.text , new RoomOptions () { MaxPlayers=3});
-            PhotonNetwork.CreateRoom(roomInputFeild.text);
+             PhotonNetwork.CreateRoom(roomInputFeild.text , new RoomOptions () { MaxPlayers=3,BroadcastPropsChangeToAll=true});
+           // PhotonNetwork.CreateRoom(roomInputFeild.text);
         }
     }
     public override void OnJoinedRoom()
@@ -109,7 +124,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         foreach(KeyValuePair<int,Player> player in PhotonNetwork.CurrentRoom.Players)
         {
             PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
-            newPlayerItem.SetPlayerInfo(player.Value);
+            newPlayerItem.SetPlayerInfo(player.Value); 
+            if (player.Value == PhotonNetwork.LocalPlayer)
+            {
+                Debug.Log("FF");
+                newPlayerItem.ApplyLocalChanges();
+            }
             playerItemsList.Add(newPlayerItem);
         }
     }
@@ -120,5 +140,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerList();
+    }
+
+    public void OnClickPlayButton()
+    {
+        PhotonNetwork.LoadLevel("Game");
     }
 }
