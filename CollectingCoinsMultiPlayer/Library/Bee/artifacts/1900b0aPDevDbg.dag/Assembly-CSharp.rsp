@@ -314,6 +314,7 @@
 -r:"Library/Bee/artifacts/1900b0aPDevDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/AnotherMultiplayerGame/Scripts/ConnectToTheServer.cs"
 "Assets/AnotherMultiplayerGame/Scripts/LobbyManager.cs"
+"Assets/AnotherMultiplayerGame/Scripts/PlayerItem.cs"
 "Assets/AnotherMultiplayerGame/Scripts/RoomItem.cs"
 "Assets/CollectingCoinsMultiplayer/Scripts/ConnectToServer.cs"
 "Assets/CollectingCoinsMultiplayer/Scripts/CreateAndJoinRooms.cs"
