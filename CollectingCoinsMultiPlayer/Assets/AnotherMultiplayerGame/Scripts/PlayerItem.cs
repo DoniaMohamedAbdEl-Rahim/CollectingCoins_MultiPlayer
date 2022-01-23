@@ -31,7 +31,6 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
         playerProperties["name"] = "Donia";
         playerProperties["age"] = "25";
-        print(playerProperties["name"]);
 
     }
     public void SetPlayerInfo(Player _player)
